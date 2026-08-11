@@ -1,24 +1,35 @@
 import java.util.Scanner;
 
-public class Choice {
+public class P1 {
+    public static String getCategory(String choice) {
+        // function that takes in a choice and returns catgeory
+        if (choice == null) {
+            return "Invalid choice";
+        }
+
+        if (choice.equalsIgnoreCase("A")) {
+            return "Action movie fan";
+        }
+        else if (choice.equalsIgnoreCase("C")) {
+            return "Comedy movie fan";
+        }
+        else if (choice.equalsIgnoreCase("D")) {
+            return "Drama movie fan";
+        }
+        else {
+            return "Invalid choice";
+        }
+
+    }
+
     public static void main(String[] args) {
+        // main function, prints category to terminal
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter choice: ");
         String choice = scanner.nextLine();
 
-        if (choice.equalsIgnoreCase("A")) {
-            System.out.print("Action movie fan\n");
-        }
-        else if (choice.equalsIgnoreCase("C")) {
-            System.out.print("Comedy movie fan\n");
-        }
-        else if (choice.equalsIgnoreCase("D")) {
-            System.out.print("Drama movie fan\n");
-        }
-        else {
-            System.out.print("Invalid choice\n");
-        }
-
+        String category = getCategory(choice);
+        System.out.println(category);
         scanner.close();
     }
 }
