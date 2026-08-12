@@ -24,6 +24,10 @@ public class P1 {
 
     public static void main(String[] args) {
         // main function, prints category to terminal
+        int odd = 1;
+        if (odd) {
+            System.out.print("Hi");
+        }
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter choice: ");
         String choice = scanner.nextLine();
