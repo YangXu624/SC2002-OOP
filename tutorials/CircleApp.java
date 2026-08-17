@@ -20,7 +20,7 @@ public class CircleApp {
                     System.out.println("Enter the radius to compute the area and circumference");
                     double rad = sc.nextDouble();
                     c = new Circle(rad);
-                    System.out.println("A new circle is created!")
+                    System.out.println("A new circle is created!");
                     break;
                 case 2:
                     if (c != null) {

@@ -32,13 +32,13 @@ public class Circle {
     public void printArea() {
         System.out.println("Area of circle");
         System.out.printf("Radius: %.1f\n", this.getRadius());
-        System.out.printf("Area: %f", this.area());
+        System.out.println("Area: " + this.area());
     }
 
     // print circumference
     public void printCircumference() {
         System.out.println("Circumference of circle");
         System.out.printf("Radius: %.1f\n", this.getRadius());
-        System.out.printf("Circumference: %f", this.circumference());
+        System.out.println("Circumference: " + this.circumference());
     }
 }
