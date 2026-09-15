@@ -1,3 +1,5 @@
+package shapes;
+
 public class Circle extends Point {
     private double radius;
     protected static final double PI = 3.14159;

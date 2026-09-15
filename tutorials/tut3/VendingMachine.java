@@ -76,7 +76,7 @@ public class VendingMachine {
 
     public void checkChange(double amount, double drinkCost) {
         double change = drinkCost - amount;
-        System.out.println("Change: $%.2f%n", change);
+        System.out.println("Change: $%.2f%n" + change);
     }
 
     public void printReceipt() {
