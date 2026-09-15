@@ -1,6 +1,6 @@
 public class Circle extends Point {
     private double radius;
-    private static final double PI = 3.14159;
+    protected static final double PI = 3.14159;
 
     public Circle(int x, int y, double rad) {
         super(x, y);
