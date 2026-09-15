@@ -7,6 +7,8 @@ public class Lab2p1 {
     
     public static void main(String[] args) {
         int choice;
+        int m;
+        int n;
 
         do {
             System.out.println("Perform the following methods:");
@@ -25,26 +27,39 @@ public class Lab2p1 {
                     break;
 
                 case 2: 
-                    System.out.println(divide(4, 7));
+                    System.out.print("m: ");
+                    m = sc.nextInt();
+                    System.out.print("n: ");
+                    n = sc.nextInt();
+                    System.out.println("Answer: " + divide(m, n));
                     break;
 
                 case 3: 
-                    System.out.println(modulus(4, 7));
+                    System.out.print("m: ");
+                    m = sc.nextInt();
+                    System.out.print("n: ");
+                    n = sc.nextInt();
+                    System.out.println("Answer: " + modulus(m, n));
                     break;
 
                 case 4: 
-                    System.out.println(countDigits(1234));
+                    System.out.print("n: ");
+                    n = sc.nextInt();
+                    System.out.println(countDigits(n));
                     break;
 
                 case 5: 
-                    System.out.println(position(12315, 1));
-                    System.out.println(position(123, 4));
+                    System.out.print("n: ");
+                    n = sc.nextInt();
+                    System.out.print("Digit: ");
+                    int digit = sc.nextInt();
+                    System.out.println(position(n, digit));
                     break;
 
                 case 6: 
-                    System.out.println(extractOddDigits(12345));
-                    System.out.println(extractOddDigits(54123));
-                    System.out.println(extractOddDigits(246));
+                    System.out.print("num: ");
+                    long num = sc.nextLong();
+                    System.out.println(extractOddDigits(num));
                     break;
 
                 case 7: 
@@ -76,15 +91,19 @@ public class Lab2p1 {
     }
 
     public static int divide(int m, int n) {
-        if (m < n) {
-            return 0;
-        } else {
-            return (m % n);
+        int counter = 0;
+        while (m > n) {
+            m -= n;
+            counter++;
         }
+        return counter;
     }
 
     public static int modulus(int m, int n) {
-        return (m % n);
+        while (m > n) {
+            m -= n;
+        }
+        return m;
     }
 
     public static int countDigits(int n) {
