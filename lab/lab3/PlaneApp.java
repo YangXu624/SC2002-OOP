@@ -16,29 +16,52 @@ public class PlaneApp {
             System.out.println("(7) Exit");
             System.out.print("\n   Enter the number of your choice: ");
             choice = sc.nextInt();
-        } while (choice < 1 || choice > 7);
 
-        switch (choice) {
-            case 1:
-                System.out.print("\nThere are ");
-                plane.showNumEmptySeats();
-                System.out.println(" empty seats");
-                break;
+            switch (choice) {
+                case 1:
+                    System.out.print("\nThere are ");
+                    plane.showNumEmptySeats();
+                    System.out.println(" empty seats");
+                    break;
 
-            case 2:
-                // to be implemented
-            case 5:
-                System.out.println("\nAssigning Seat ..");
-                System.out.print("  Please enter SeatID: ");
-                int seat_id = sc.nextInt();
-                System.out.print("  Please enter Customer ID: ");
-                int customer_id = sc.nextInt();
-                plane.assignSeat(seat_id, customer_id);
-                System.out.println("Seat Assigned!");
-                break;
-            default:
-                System.out.println("Lol");
-                break;
-        }
+                case 2:
+                    System.out.println("\nThe following seats are empty:");
+                    plane.showEmptySeats();
+                    break;
+
+                case 3:
+                    System.out.println("\nThe seat assignments are as follow:");
+                    plane.showAssignedSeats(true);
+                    break;
+
+                case 4:
+                    System.out.println("\nThe seat assignments are as follow:");
+                    plane.showAssignedSeats(false);
+                    break;
+
+                case 5:
+                    System.out.println("\nAssigning Seat ..");
+                    System.out.print("  Please enter SeatID: ");
+                    int seat_id = sc.nextInt();
+                    System.out.print("  Please enter Customer ID: ");
+                    int customer_id = sc.nextInt();
+                    plane.assignSeat(seat_id, customer_id);
+                    break;
+
+                case 6:
+                    System.out.print("\n  Enter SeatID to unassign customer from: ");
+                    int unassign_seat_id = sc.nextInt();
+                    plane.unAssignSeat(unassign_seat_id);
+                    break;
+
+                case 7:
+                    break;
+
+                default:
+                    break;
+            }
+        } while (choice != 7);
+
+        sc.close();
     }
 }

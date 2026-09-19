@@ -13,7 +13,7 @@ public class Plane {
         }
     }
 
-    public PlaneSeat[] sortSeats() {
+    private PlaneSeat[] sortSeats() {
         PlaneSeat[] copy = Arrays.copyOf(this.seat, this.seat.length);
         Arrays.sort(copy, (s1, s2) -> Integer.compare(s1.getCustomerID(), s2.getCustomerID()));
         return copy;
@@ -26,7 +26,7 @@ public class Plane {
     public void showEmptySeats() {
         for (int i = 0; i < this.seat.length; i++) {
             if (!this.seat[i].isOccupied()) {
-                System.out.println(this.seat[i].getSeatID());
+                System.out.println("SeatID " + this.seat[i].getSeatID());
             }
         }
     }
@@ -35,14 +35,14 @@ public class Plane {
         if (bySeatId) {
             for (int i = 0; i < this.seat.length; i++) {
                 if (this.seat[i].isOccupied()) {
-                    System.out.println("Seat ID: " + this.seat[i].getSeatID() + ", Customer ID: " + this.seat[i].getCustomerID());
+                    System.out.println("SeatID " + this.seat[i].getSeatID() + " assigned to CustomerID " + this.seat[i].getCustomerID() + ".");
                 }
             }
         } else {
             PlaneSeat[] sortedCustomers = sortSeats();
             for (int i = 0; i < sortedCustomers.length; i++) {
                 if (sortedCustomers[i].isOccupied()) {
-                    System.out.println("Seat ID: " + sortedCustomers[i].getSeatID() + ", Customer ID: " + sortedCustomers[i].getCustomerID());
+                    System.out.println("SeatID " + sortedCustomers[i].getSeatID() + " assigned to CustomerID " + sortedCustomers[i].getCustomerID() + ".");
                 }
             }
         }
@@ -52,6 +52,9 @@ public class Plane {
         if (!this.seat[seatId - 1].isOccupied()) { // have to -1 since seat id 1 is at this.seat[0]
             this.seat[seatId - 1].assign(customerId);
             this.numEmptySeat--;
+            System.out.println("Seat Assigned!");
+        } else {
+            System.out.println("Seat already assigned to a customer.");
         }
     }
 
@@ -59,6 +62,7 @@ public class Plane {
         if (this.seat[seatId - 1].isOccupied()) {
             this.seat[seatId - 1].unAssign();
             this.numEmptySeat++;
+            System.out.println("Seat Unassigned!");
         }
     }
 }
