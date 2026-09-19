@@ -20,7 +20,7 @@ public class Plane {
     }
 
     public void showNumEmptySeats() {
-        System.out.println(this.numEmptySeat);
+        System.out.print(this.numEmptySeat);
     }
 
     public void showEmptySeats() {
@@ -49,7 +49,7 @@ public class Plane {
     }
 
     public void assignSeat(int seatId, int customerId) {
-        if (!this.seat[seatId - 1].isOccupied()) {
+        if (!this.seat[seatId - 1].isOccupied()) { // have to -1 since seat id 1 is at this.seat[0]
             this.seat[seatId - 1].assign(customerId);
             this.numEmptySeat--;
         }
