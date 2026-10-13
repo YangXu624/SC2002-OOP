@@ -2,12 +2,12 @@ public class Sorting
 {
 	//-----------------------------------------------------------------
 	// Sorts the specified array of objects using the selection
-	// sort algorithm.
+	// sort algorithm in ascending order.
 	//-----------------------------------------------------------------
-	public static void selectionSort (Comparable[] list)
+	public static <T extends Comparable<? super T>> void selectionSort (T[] list)
 	{
 		int min;
-		Comparable temp;
+		T temp;
 		for (int index = 0; index < list.length-1; index++)
 		{
 			min = index;
@@ -22,22 +22,21 @@ public class Sorting
 	}
 	//-----------------------------------------------------------------
 	// Sorts the specified array of objects using the insertion
-	// sort algorithm.
+	// sort algorithm in descending order.
 	//-----------------------------------------------------------------
-	public static void insertionSort (Comparable[] list)
+	public static <T extends Comparable<? super T>> void insertionSort (T[] list)
 	{
 		for (int index = 1; index < list.length; index++)
 		{
-			Comparable key = list[index];
+			T key = list[index];
 			int position = index;
-			// Shift larger values to the right
-			while (position > 0 && key.compareTo(list[position-1]) < 0)
+			// Shift smaller values to the right
+			while (position > 0 && key.compareTo(list[position-1]) > 0)
 			{
 				list[position] = list[position-1];
 				position--;
 			}
-				list[position] = key;
+			list[position] = key;
 		}
 	}
 }
-//
