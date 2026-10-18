@@ -1,6 +1,6 @@
 public class Check {
     private float amount;
-    private CheckingAccount account; // where the money comes from
+    private CheckingAccount account; // Account the check is drawn against
     private int checkNumber;
 
     public Check(float amount, CheckingAccount account, int checkNumber) {
@@ -14,10 +14,10 @@ public class Check {
     }
 
     public CheckingAccount getAccount() {
-        return this.account; // return CheckingAccount object
+        return this.account;
     }
 
     public int getCheckNo() {
-        return this.getCheckNo;
+        return this.checkNumber;
     }
 }

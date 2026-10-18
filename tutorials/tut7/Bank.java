@@ -1,17 +1,26 @@
 public class Bank {
 
-    public static int cashCheck(Check theCheck) {
-        float amt = theCheck.getAmount();
-        int account = theCheck.getAccount();
-        float bal = account.getBalance();
+    public float cashCheck(Check theCheck) {
+        float amount = theCheck.getAmount();
+        CheckingAccount account = theCheck.getAccount();
+        float balance = account.getBalance();
 
-        if (bal < amt) {
+        // Optional fragment: [balance < amount]
+        if (balance < amount) {
             account.addInsufficientFundFee();
             account.noteReturnedCheck(theCheck);
-            return -1
+            returnCheck(theCheck);
+            return -1;
         }
-        else {
-            checkNumber = theCheck.getCheckNo();
-        }
+
+        // Normal flow: [balance >= amount]
+        int checkNumber = theCheck.getCheckNo();
+        account.addDebitTransaction(checkNumber, amount);
+        account.storePhotoOfCheck(theCheck);
+        return amount;
+    }
+
+    public void returnCheck(Check theCheck) {
+        System.out.println("Bank: Returning check #" + theCheck.getCheckNo() + " to presenter.");
     }
 }
